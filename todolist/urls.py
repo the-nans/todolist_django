@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from user.views import UserModelViewSet
+
 from todo_project.views import ProjectModelViewSet, ToDoNoteModelViewSet
 from rest_framework.routers import DefaultRouter
 
@@ -25,9 +26,11 @@ router.register('project', ProjectModelViewSet)
 router.register('to_do_note', ToDoNoteModelViewSet)
 
 
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
-    path('api/', include(router.urls)),
+    path('api/', include(router.urls))
 
 ]

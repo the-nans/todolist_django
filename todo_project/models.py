@@ -12,7 +12,7 @@ class Project(models.Model):
 
 
 class ToDoNote(models.Model):
-    project = models.ForeignKey(Project, on_delete=models.PROTECT, blank=True, default=1)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='project')
     text = models.TextField()
     date_added = models.DateField(auto_now=True)
     date_edited = models.DateField(auto_now=True)
