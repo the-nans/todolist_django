@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'user',
     'corsheaders',
     'todo_project',
+    'django_filters'
 
 ]
 
@@ -56,9 +57,12 @@ REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer',
         'rest_framework.renderers.BrowsableAPIRenderer',
-        'djangorestframework_camel_case.render.CamelCaseJSONRenderer'
+
     ],
 
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 100
 
 }
 
